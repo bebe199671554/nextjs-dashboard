@@ -7,6 +7,9 @@ const {
 } = require('../app/lib/placeholder-data.js');
 const bcrypt = require('bcrypt');
 
+// 測驗:seeding 是什麼意思
+// 使用一組初始資料填充資料庫
+
 async function seedUsers(client) {
   try {
     await client.sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
@@ -25,6 +28,7 @@ async function seedUsers(client) {
     // Insert data into the "users" table
     const insertedUsers = await Promise.all(
       users.map(async (user) => {
+        // bcrypt 是一種加密服務
         const hashedPassword = await bcrypt.hash(user.password, 10);
         return client.sql`
         INSERT INTO users (id, name, email, password)
