@@ -32,3 +32,24 @@ Chapter 8
 #### fix錯誤骨架
 https://nextjs.org/learn/dashboard-app/streaming#fixing-the-loading-skeleton-bug-with-route-groups
 設定/(overview) 資料夾可以將避免其他子目錄資料夾被共用到loading.tsx 上
+
+------
+
+Chapter 11
+####
+TODO: 待補Router用法
+
+------
+
+Chapter 12
+#### 
+>TIP: 如果您正在使用具有多個欄位的表單，您可能需要考慮使用entries()使用 JavaScript 的方法Object.fromEntries()。例如：
+>const rawFormData = Object.fromEntries(formData.entries())
+<!-- https://developer.mozilla.org/en-US/docs/Web/API/FormData/entries -->
+
+>要處理類型驗證，您有幾個選擇。雖然您可以手動驗證類型，但使用類型驗證庫可以節省您的時間和精力。對於您的範例，我們將使用Zod，一個 TypeScript 優先的驗證函式庫，可以為您簡化此任務。
+<!-- https://zod.dev/ -->
+
+>由於您要更新發票路由中顯示的數據，因此您希望清除此快取並向伺服器觸發新請求。您可以使用revalidatePathNext.js 中的函數來執行此操作：
+
+>ROUTER 導航 redirect
