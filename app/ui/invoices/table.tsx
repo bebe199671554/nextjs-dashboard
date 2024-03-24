@@ -4,6 +4,7 @@ import InvoiceStatus from '@/app/ui/invoices/status';
 import { formatDateToLocal, formatCurrency } from '@/app/lib/utils';
 import { fetchFilteredInvoices } from '@/app/lib/data';
 
+
 export default async function InvoicesTable({
   query,
   currentPage,
@@ -11,6 +12,7 @@ export default async function InvoicesTable({
   query: string;
   currentPage: number;
 }) {
+  // 如果您導航到該<Table>元件，您將看到兩個屬性query和currentPage被傳遞給 fetchFilteredInvoices()傳回與查詢相符的發票的函數。
   const invoices = await fetchFilteredInvoices(query, currentPage);
 
   return (
