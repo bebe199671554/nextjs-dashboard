@@ -53,3 +53,44 @@ Chapter 12
 >由於您要更新發票路由中顯示的數據，因此您希望清除此快取並向伺服器觸發新請求。您可以使用revalidatePathNext.js 中的函數來執行此操作：
 
 >ROUTER 導航 redirect
+
+------
+
+Chapter 13
+#### 
+- 如何使用特殊```error.tsx```檔案來擷取路線段中的錯誤，並向使用者顯示後備 UI
+- 何使用```notFound```函數和```not-found```檔案來處理404錯誤（對於不存在的資源）。
+
+.tsx
+它接受兩個 props：
+error：這個物件是 JavaScript 原生的一個實例Error目的。
+reset：這是重置錯誤邊界的功能。執行時，函數將嘗試重新渲染路線段。
+
+要了解有關 Next.js 中錯誤處理的更多信息，請查看以下文件：
+
+[錯誤處理](https://nextjs.org/docs/app/building-your-application/routing/error-handling)
+[error.js API參考](https://nextjs.org/docs/app/api-reference/file-conventions/error)
+[notFound() API參考](https://nextjs.org/docs/app/api-reference/functions/not-found)
+[not-found.js API參考](https://nextjs.org/docs/app/api-reference/file-conventions/not-found)
+
+------
+
+Chapter 14
+#### 改善無障礙環境
+
+- [TODO:如何eslint-plugin-jsx-a11y與 Next.js 一起使用來實施可訪問性最佳實踐](https://nextjs.org/learn/dashboard-app/improving-accessibility#using-the-eslint-accessibility-plugin-in-nextjs)
+- 如何實作伺服器端表單驗證。
+- 如何使用 React useFormStatehook 來處理表單錯誤，並將其顯示給使用者。
+
+<!-- prevState- 包含從鉤子傳遞的狀態useFormState。您不會在本例的操作中使用它，但它是必需的道具。 -->
+
+safeParse
+safeParse()將會傳回一個包含 asuccess或error欄位的物件。這將有助於更優雅地處理驗證，而無需將此邏輯放入try/catch區塊內。
+
+在上面的程式碼中，您還添加了以下 aria 標籤：
+
+aria-describedby="customer-error"select：這會在元素和錯誤訊息容器之間建立關係。它表明容器id="customer-error"描述了該select元素。當用戶與select框互動時，螢幕閱讀器將閱讀此描述以通知他們錯誤。
+
+id="customer-error"：此id屬性唯一標識儲存輸入錯誤訊息的 HTML 元素select。這是aria-describedby建立關係所必需的。
+
+aria-live="polite"：當更新內部錯誤時，螢幕閱讀器應禮貌地通知使用者div。當內容更改時（例如，當用戶更正錯誤時），螢幕閱讀器將宣布這些更改，但僅在用戶空閒時才進行，以免打斷它們。
